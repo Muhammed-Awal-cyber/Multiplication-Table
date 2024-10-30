@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body{
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<h1 style="text-align: center;">MUlTIPLICATION TABLE</h1>
+<body style="background-color: rgb(226, 136, 18);">
+    <label for="" style="color: white;">Colums</label>
+    <input type="number" class="one" placeholder="Input any number" id="colNumber" >
+    <label for="" style="color: white;">Row</label>
+
+    <input type="number color" class="one" placeholder="Input any number" id="rowNumber" >
+    <label for="" style="color: white;">Evaluation</label>
+    <select name="" id="selectEval" style="height: 6vh; border-radius: 5px; border: none;">
+        <option value="">
+            Pick any Operation you Want
+        </option>
+    <option value="*">
+        MUlTIPLICATION
+    </option>
+    <option value="+">
+        ADDITION
+    </option>
+    <option value="-">
+        SUBSTRATION
+    </option>
+    <option value="/">
+        DIVISION
+    </option>
+</select>
+<button id="Button" onclick="displayResult()" style="height: 5vh;width: 100px; border-radius: 5px; border: none; color: white; box-shadow: 2px 2px  white; background-color: bisque;">
+    make a Table
+</button>
+
+<div>
+    <table id="dispDiv"></table>
+    </div>
+
+
+<script>
+    var tabRow = rowNumber.value;
+    var tabColumn =  colNumber.value;
+
+    function displayResult(){
+        var sign = selectEval.value
+    var table = "<table>"
+
+        for (i = 1; i <= Number(rowNumber.value); i++){
+            table += "<td style = 'padding:20px';>"
+            for (j = 1; j <=Number(colNumber.value); j++){
+                var calcValue = (eval(i + sign + j))
+
+                if (calcValue % 1  !==0 ) {
+                var calcValue = Number(eval(i + sign + j)).toFixed(2)
+                }
+
+                table+= i + sign + j+ "=" + calcValue + "<br>" + "<br>";
+            }
+            dispDiv.innerHTML = table
+        }
+    }
+</script>
+</body>
+</html>
